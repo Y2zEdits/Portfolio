@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Y2z Edit’s | Portfólio</title>
+
+<!-- Ícones -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+/* ===== RESET ===== */
+body {
+    margin: 0;
+    padding: 40px;
+    background: #0f0f0f;
+    color: white;
+    font-family: Arial, sans-serif;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+body.show { opacity: 1; }
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ===== INTRO TELA PRETA ===== */
+.intro {
+    position: fixed;
+    inset: 0;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: introFade 2.5s forwards;
+}
+
+.intro h1 {
+    font-size: 56px;
+    letter-spacing: 2px;
+    animation: textFade 2s forwards;
+}
+
+/* animações */
+@keyframes introFade {
+    0% { opacity: 1; }
+    70% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes textFade {
+    0% { opacity: 0; transform: scale(0.95); }
+    20% { opacity: 1; transform: scale(1); }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* ===== HEADER ===== */
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.header h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    opacity: 0.8;
+}
+
+/* ===== SECTION ===== */
+.section {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 14px;
+    margin-bottom: 40px;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+}
+
+/* ===== PRODUTOS SCROLL ===== */
+.products-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.products-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.products-scroll::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+}
+
+.card {
+    min-width: 260px;
+    background: #121212;
+    padding: 25px;
+    border-radius: 14px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.card p {
+    opacity: 0.85;
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 22px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* ===== CONTATO ===== */
+.contact {
+    text-align: center;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.contact a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.contact i {
+    font-size: 38px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.contact a:hover {
+    opacity: 0.7;
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO (só primeira entrada) -->
+<div class="intro" id="intro">
+    <h1>Y2z Edit’s</h1>
+</div>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Y2z Edit’s</h1>
+        <p>Edição profissional • FiveM • Conteúdo digital</p>
+    </div>
+
+    <!-- PRODUTOS -->
+    <div class="section">
+        <h2>📦 Produtos</h2>
+
+        <div class="products-scroll">
+
+            <div class="card">
+                <h3>🎬 Highlights</h3>
+                <p>Edição dinâmica para clipes.</p>
+                <a href="highlights.html">Ver exemplos</a>
+            </div>
+
+            <div class="card">
+                <h3>🚀 Intro 3D</h3>
+                <p>Aberturas animadas.</p>
+                <a href="intro3d.html">Ver exemplos</a>
+            </div>
+
+            <div class="card">
+                <h3>🖼️ Thumbnails</h3>
+                <p>Design focado em CTR.</p>
+                <a href="thumbnails.html">Ver exemplos</a>
+            </div>
+
+            <div class="card">
+                <h3>✨ Qualidade</h3>
+                <p>Antes e depois real.</p>
+                <a href="qualidade.html">Ver exemplos</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CONTATO -->
+    <div class="section contact">
+        <h2>📞 Contato</h2>
+        <p>Entre em contato para orçamentos e parcerias.</p>
+
+        <div class="contact-icons">
+            <a href="https://discord.gg/zsNS8Zp7Qj" target="_blank">
+                <i class="fa-brands fa-discord"></i>
+                Discord da loja
+            </a>
+
+            <a href="mailto:pouznt@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+                y2zedits@gmail.com
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+// ===== INTRO SÓ NA PRIMEIRA VISITA =====
+if (sessionStorage.getItem("visited")) {
+    document.getElementById("intro").style.display = "none";
+    document.body.classList.add("show");
+} else {
+    sessionStorage.setItem("visited", "true");
+    setTimeout(() => {
+        document.body.classList.add("show");
+    }, 1800);
+}
+
+// ===== TRANSIÇÃO ENTRE PÁGINAS =====
+document.querySelectorAll("a").forEach(link=>{
+    link.onclick=e=>{
+        if(link.target === "_blank") return;
+        e.preventDefault();
+        document.body.classList.remove("show");
+        setTimeout(()=>location.href=link.href,600);
+    };
+});
+</script>
+
+</body>
+</html>

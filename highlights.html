@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Highlights | Y2z Edit’s</title>
+
+<style>
+body {
+    background: #0f0f0f;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 40px;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+body.show { opacity: 1; }
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 14px;
+}
+
+.video {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin-top: 25px;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 26px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+<h1>🎬 Clipes Highlights</h1>
+
+<div class="video">
+<iframe src="https://player.vimeo.com/video/1154569679" allowfullscreen></iframe>
+</div>
+
+<a href="index.html" class="btn">⬅ Voltar</a>
+</div>
+
+<script>
+window.onload = () => document.body.classList.add("show");
+document.querySelectorAll("a").forEach(l=>{
+l.onclick=e=>{
+e.preventDefault();
+document.body.classList.remove("show");
+setTimeout(()=>location.href=l.href,600);
+}});
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Intro 3D | Y2z Edit’s</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 40px;
+    background: #0f0f0f;
+    color: white;
+    font-family: Arial, sans-serif;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+body.show { opacity: 1; }
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 14px;
+}
+
+.videos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.video-box h3 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.video {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 14px 28px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .videos { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+    <h1>🚀 Intro 3D</h1>
+    <p>Aberturas animadas para vídeos, canais e marcas.</p>
+
+    <div class="videos">
+        <div class="video-box">
+            <h3>Exemplo 1</h3>
+            <div class="video">
+                <iframe src="https://player.vimeo.com/video/1154577121" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="video-box">
+            <h3>Exemplo 2</h3>
+            <div class="video">
+                <iframe src="https://player.vimeo.com/video/1154577391" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <a href="index.html" class="btn">⬅ Voltar para o portfólio</a>
+</div>
+
+<script>
+window.onload = () => document.body.classList.add("show");
+document.querySelectorAll("a").forEach(link=>{
+    link.onclick=e=>{
+        e.preventDefault();
+        document.body.classList.remove("show");
+        setTimeout(()=>location.href=link.href,600);
+    };
+});
+</script>
+</body>
+</html>
